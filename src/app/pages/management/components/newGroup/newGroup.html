@@ -1,0 +1,54 @@
+<p-growl   [style.zIndex]="99999999" [(value)]="msgs"></p-growl>﻿
+
+<ba-card class="col-xlg-2 col-xl-2 col-lg-12 col-sm-12 col-12" >
+
+  <p-button label=""
+            (onClick)="Back($event)"
+            icon="fa fa-arrow-left" iconPos="left">
+  </p-button>
+  <div class="container">
+    <form #CreateGroup="ngForm" class="mt-5" (onsubmit)="savedGroupp($event)">
+      <div class="form-group row">
+        <label for="GroupName" class="col-sm-2 col-form-label">عنوان گروه</label>
+        <div class="col-sm-10">
+          <input type="text" name="ProjectName" class="col-6 form-control"
+                 [(ngModel)]="currentEntryGroup.Name"/>
+        </div>
+      </div>
+
+      <div class="form-group row">
+        <label for="agesGroup" class="col-sm-2 col-form-label">رده سنی</label>
+        <div class="col-6">
+          <p-dropdown [options]="agesList" [(ngModel)]="selectedAge"
+                      name="ageModel"
+                      placeholder="انتخاب کنید"
+                      [style]="{'width':'150px'}" filter="true">
+            <ng-template let-item pTemplate="selectedItem">
+              <span style="vertical-align:middle">{{item.label}}</span>
+            </ng-template>
+            <ng-template let-service pTemplate="item">
+              <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+                <div style="font-size:14px;float:right;margin-top:4px">{{service.label}}</div>
+              </div>
+            </ng-template>
+          </p-dropdown>
+
+        </div>
+
+      </div>
+
+      <div class="form-group row">
+        <label for="groupDescription" class="col-sm-2 col-form-label">توضیحات</label>
+        <div class="col-sm-10">
+          <textarea name="Description"
+                 [(ngModel)]="currentEntryGroup.Description"
+                 class="col-6 form-control"></textarea>
+        </div>
+      </div>
+      <button type="button" class="btn btn-default" (click)="savedGroupp($event)">ثبـــت </button>
+    </form>
+
+  </div>
+
+
+</ba-card>

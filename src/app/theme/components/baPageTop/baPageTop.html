@@ -1,0 +1,51 @@
+<div class="page-top clearfix" baScrollPosition maxHeight="50" (scrollChange)="scrolledChanged($event)"
+     [ngClass]="{scrolled: isScrolled}">
+  <div class="user-profile clearfix " style="float:
+  left !important;     min-width: 150px !important;">
+    <ba-msg-center></ba-msg-center>
+  <div class="dropdown al-user-profile">
+
+  <a class="profile-toggle-link dropdown-toggle" id="user-profile-dd" data-toggle="dropdown" aria-expanded="false">
+  <img src="{{ ( 'FcIsatis' | baProfilePicture ) }}">
+  </a>
+  <ul class="dropdown-menu top-dropdown-menu profile-dropdown" aria-labelledby="user-profile-dd">
+  <li class="dropdown-item"><a href><i class="fa fa-user"></i>پروفایل</a></li>
+  <li class="dropdown-item"><a href><i class="fa fa-cog"></i>تنظیمات</a></li>
+  <li class="dropdown-item"><a href class="signout" (click)="signout()"><i class="fa fa-power-off"></i>خروج</a></li>
+  </ul>
+  </div>
+
+  </div>
+
+
+
+
+
+
+
+  <div class="user-profile clearfix " style="    min-width: 10px;">
+    <div class="dropdown al-user-profile">
+      <a href (click)="toggleMenu()"
+         class="collapse-menu-link ion-navicon"></a>
+
+    </div>
+  </div>
+  <div class=" clearfix " style=" min-width: 20px; float: right">
+    <div >
+      <div class="search topsearch">
+        <i class="ion-ios-search-strong" ng-click="startSearch()"></i>
+        <input id="searchInput" type="text" placeholder="جستجو ...">
+      </div>
+    </div>
+  </div>
+
+
+  <div class="user-profile clearfix " style="min-width: 500px;">
+    <div class="dropdown ">
+      <a routerLink="/pages/dashboard" class="al-logo clearfix">
+        <span style="color: white;">FcIsatis</span> </a>
+    </div>
+  </div>
+
+
+</div>

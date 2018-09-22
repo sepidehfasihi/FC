@@ -1,0 +1,198 @@
+@import '../../sass/conf/conf';
+
+$sidebar-scroll-width: 4px;
+$angle-left: '\f100';
+$angle-right: '\f101';
+
+@mixin default-sublist() {
+  padding: 0;
+  list-style: none;
+  position: relative;
+  display: none;
+  &.expanded {
+    display: block;
+  }
+  > ba-menu-item > li {
+    display: block;
+    float: none;
+    padding: 0;
+    border-bottom: none;
+    position: relative;
+    a {
+      display: block;
+      text-shadow: none;
+      font-size: 13px;
+      text-decoration: none;
+      color: $sidebar-text;
+      padding-left: 52px;
+      height: auto;
+      line-height: 29px;
+      &:hover {
+        color: $primary;
+      }
+    }
+    &.selected:not(.with-sub-menu) > a {
+      border: none;
+      background-color: $primary;
+      &:hover {
+        color: $sidebar-text;
+      }
+    }
+
+  }
+}
+
+:host /deep/ {
+  .al-sidebar {
+    width: 205px;
+    top: $top-height;
+    right: 0;
+    z-index: 1001;
+    display: block;
+    min-height: 100%;
+    background-color: $sidebar;
+    height: 100%;
+    position: fixed;
+  }
+
+  .al-sidebar-list {
+    margin: 0;
+    overflow: hidden;
+    padding: 18px 0 0 0;
+    list-style: none;
+    margin-top: -18px;
+  }
+
+  .al-sidebar-sublist .subitem-submenu-list {
+    padding-left: 15px;
+  }
+
+  .subitem-submenu-link {
+    .fa {
+      top: 7px;
+    }
+  }
+
+  .al-sidebar-list-item {
+    display: block;
+    position: relative;
+    float: none;
+    padding: 0;
+    border-bottom: 1px solid;
+    -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 40px rgba(0, 0, 0, 0.1) inset;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px #6b5f5f inset;
+    &.selected:not(.with-sub-menu) {
+      background-color: $primary;
+      a.al-sidebar-list-link {
+        color: $sidebar-text;
+        b {
+          color: $sidebar-text;
+        }
+      }
+    }
+  }
+//ssdfsdfffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+
+  .ba-sidebar-item-expanded {
+    > ul.al-sidebar-sublist {
+      border-bottom: 1px solid rgba(161, 161, 161, 0.25);
+      display: block !important;
+    }
+
+  }
+
+  .al-sidebar-list-item, .ba-sidebar-sublist-item {
+    &.ba-sidebar-item-expanded {
+      > .al-sidebar-list-link {
+       padding-bottom: 10px;
+        //border-bottom: 1px solid white;
+        box-shadow: 0 1px 4px rgba(0, 0, 0, 0.3), 0 0 20px #6b5f5f inset;
+        b {
+          transform: rotate(180deg);
+        }
+      }
+
+      > .al-sidebar-sublist {
+        display: block;
+      }
+    }
+  }
+
+  a.al-sidebar-list-link {
+    display: block;
+    height: 42px;
+    padding-right: 18px;
+    text-shadow: none;
+    font-size: 13px;
+    text-decoration: none;
+    text-align: right;
+    color: $sidebar-text;
+    line-height: 42px;
+    white-space: nowrap;
+    overflow: hidden;
+    cursor: pointer;
+    &:hover {
+      color: $primary;
+      b {
+        color: $primary;
+      }
+    }
+    i {
+      margin-left: 18px;
+      // height: 30px;
+      width: 16px;
+      display: inline-block;
+    }
+    b {
+      display: block;
+      opacity: 1;
+      width: 14px;
+      height: 14px;
+      line-height: 14px;
+      text-shadow: none;
+      font-size: 18px;
+      position: absolute;
+      left: 10px;
+      top: 12px;
+      padding: 0;
+      text-align: center;
+      color: $sidebar-text;
+      transition: transform 0.2s linear;
+    }
+  }
+
+  .slimScrollBar, .slimScrollRail {
+    border-radius: 0 !important;
+    width: $sidebar-scroll-width !important;
+    right: $sidebar-width - $sidebar-scroll-width;
+  }
+
+  .al-sidebar-sublist {
+    @include default-sublist();
+  }
+
+  .sidebar-hover-elem {
+    width: $sidebar-scroll-width;
+    background: $primary;
+    position: absolute;
+    top: -150px;
+    right: $sidebar-width - $sidebar-scroll-width;
+    transition: all 0.5s ease;
+    transition-property: top, height;
+    height: 42px;
+    text-align: right;
+    display: block;
+  }
+
+  .sidebar-select-elem {
+    display: block;
+    top: 120px;
+  }
+
+  .menu-collapsed {
+    .slimScrollBar, .slimScrollRail {
+      display: none !important;
+    }
+  }
+}

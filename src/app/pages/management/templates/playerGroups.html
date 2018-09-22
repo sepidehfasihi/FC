@@ -1,0 +1,61 @@
+<p-growl [style.zIndex]="99999999" [(value)]="msgs"></p-growl>﻿
+
+<p-confirmDialog header="هشدار" icon="fa fa-question-circle" width="425" #cd>
+  <p-footer>
+    <button type="button" pButton label="بلـه"  class="ok"(click)="cd.accept()"></button>
+
+    <button type="button" pButton label="خیـر" (click)="cd.reject()"></button>
+  </p-footer>
+</p-confirmDialog>
+<!--//////////////////////////////////////////// ثبت نماینده جدید//////////////-->
+
+
+<div *ngIf="newGroup">
+  <newGroup (savedGroup)="saveGroups($event)" [editObj]="editGroupss" (goBack)="backToOrg()"></newGroup>
+
+</div>
+<div *ngIf="newTeamm">
+  <PlayTeam [GroupId]="currentGroupId" (goBack)="backToOrg()"></PlayTeam>
+
+</div>
+<!--///////////////////////////////////-->
+<ba-card class="col-xlg-6 col-xl-6 col-lg-12 col-sm-12 col-12" *ngIf="originalPlayerGroupPage">
+
+
+
+  <div class="button-wrapper">
+    <button type="button" class="btn btn-default"
+            (click)="showNewGroup($event)">ثبت گروه جدید</button>
+  </div>
+
+  <br/>
+  <br/>
+  <br/>
+
+  <p-dataTable [value]="groupList" [immutable]=false
+               selectionMode="single"
+               [(selection)]="selectedGroups" (onRowDblclick)="showTeamssPage($event)">
+    <p-column styleClass="col-button" header="ردیف" >
+      <ng-template  let-row="rowData" let-i="rowIndex" pTemplate="body">
+        <div class="btn-group" role="group" aria-label="First group" >
+          {{ i+1 }}
+        </div>
+      </ng-template>
+
+    </p-column>
+    <p-column field="Name" header="عنوان گروه" [filter]="true"></p-column>
+    <p-column field="Ages.Name" header="رده سنی" [filter]="true"></p-column>
+    <p-column field="Description" header="توضیحات" [filter]="true"></p-column>
+    <p-column styleClass="col-button" >
+      <ng-template  let-row="rowData" let-i="rowIndex" pTemplate="body">
+        <div class="btn-group" role="group" aria-label="First group" >
+          <button title="Edit" type="button" class="btn btn-info"
+                  (click)="editGroups(row,i)" >
+            <span class="fa fa-edit"></span>
+          </button>
+        </div>
+      </ng-template>
+    </p-column>
+  </p-dataTable>
+</ba-card>
+

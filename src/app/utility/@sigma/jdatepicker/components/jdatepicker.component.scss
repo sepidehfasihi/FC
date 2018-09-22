@@ -1,0 +1,96 @@
+:host() {
+    width:200px;
+    height: 0;
+    display: none;
+    position: relative;
+    z-index: 100000000000;
+    &.show {
+        display: block
+    }
+    >div{
+        display: flex;
+        padding: 10px;
+        font-size: 12px;
+        z-index: 10000000;
+        flex-direction: column;
+        background-color: #fff;
+        box-shadow: 0px 1px 3px 0 #999;
+    }
+    .header {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding-bottom: 10px;
+        >* {
+            flex: 1;
+            text-align: center;
+        }
+    }
+    .content {
+        position: relative;
+    }
+    .weekDays {
+        display: flex;
+        flex-direction: row;
+        justify-content: center;
+        align-items: center;
+        padding: 5px 0;
+        background-color: #f4f4f4;
+        border-bottom: 1px solid #ddd;
+        >* {
+            flex: 1;
+            text-align: center;
+        }
+    }
+    .days {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        font-size: 10px;
+        .day {
+            transition: background-color 300ms ease, color 300ms ease;
+            &:hover {background-color: rgba(230,230,230,.5);}
+        }
+        >* {
+            width:calc(14.28571428571429%);
+            text-align: center;
+            padding: 5px;
+            box-sizing: border-box;
+            &.active {background-color: #1d9781 !important; color: #fff;}
+        }
+        
+    }
+    .month-dialog,.year-dialog {
+        position: absolute;
+        top:0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        align-items: center;
+        background-color: #fff;
+        transform: scale(0);
+        &.show {
+            transform: scale(1);
+        }
+    }
+    .month-dialog {
+        >* {
+            width:33.33333%;
+            height: 25%;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            &:hover {background-color: rgba(230,230,230,.5);}
+            &.active {
+                color: #fff;
+                background-color: #1d9781 !important;
+            }
+        }
+    }
+}

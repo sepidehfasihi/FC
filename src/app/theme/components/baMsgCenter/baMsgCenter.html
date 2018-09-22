@@ -1,0 +1,197 @@
+<ul class="al-msg-center clearfix">
+  <li class="dropdown">
+    <a href class="dropdown-toggle" id="msg-dd1" data-toggle="dropdown" aria-expanded="false">
+      <i class="fa fa-bell-o"></i><span>{{ notifications.length }}</span>
+
+      <div class="notification-ring"></div>
+    </a>
+
+    <div class="top-dropdown-menu dropdown-menu" aria-labelledby="msg-dd1">
+      <i class="dropdown-arr"></i>
+
+      <div class="header clearfix">
+        <strong style="float: right">اطلاع رسانی</strong>
+        <!--<a href>Mark All as Read</a>-->
+        <!--<a href>Settings</a>-->
+      </div>
+      <div class="msg-list">
+          <a *ngFor="let noti of notifications"  class="clearfix" (click)="showNotification(noti)">
+          <div class="img-area" [hidden]="noti.IsChecked">
+            <i class="fa" [ngClass]="noti.Icon" ></i>
+          </div>
+          <div class="msg-area">
+            <div>{{ noti.Content }}</div>
+            <span>{{ noti.CreatedDate }}</span>
+          </div>
+        </a>
+      </div>
+      <a href >مشاهده تمام اطلاعات</a>
+    </div>
+  </li>
+  <!--<li class="dropdown">-->
+    <!--<a href class="msg dropdown-toggle" id="msg-dd2" data-toggle="dropdown" aria-expanded="false">-->
+      <!--<i class="fa fa-envelope-o"></i><span>{{ messages.length }}</span>-->
+      <!--<div class="notification-ring"></div>-->
+    <!--</a>-->
+    <!--<div class="top-dropdown-menu dropdown-menu" aria-labelledby="msg-dd2">-->
+      <!--<i class="dropdown-arr"></i>-->
+      <!--<div class="header clearfix">-->
+        <!--<strong style="float: right">پیام ها</strong>-->
+        <!--&lt;!&ndash;<a href>Mark All as Read</a>&ndash;&gt;-->
+        <!--&lt;!&ndash;<a href>Settings</a>&ndash;&gt;-->
+      <!--</div>-->
+      <!--<div class="msg-list">-->
+        <!--<a *ngFor="let msg of messages" href class="clearfix">-->
+          <!--<div class="img-area"><img [ngClass]="{'photo-msg-item': !msg.Icon}"-->
+                                     <!--src="{{ ( msg.Icon ||  (msg.Content | baProfilePicture)) }}"></div>-->
+          <!--<div class="msg-area" >-->
+            <!--<div>{{ msg.Content }}</div>-->
+            <!--<span>{{ msg.CreatedDate }}</span>-->
+          <!--</div>-->
+        <!--</a>-->
+      <!--</div>-->
+      <!--<a href>مشاهده تمام پیام ها</a>-->
+    <!--</div>-->
+  <!--</li>-->
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+<ng-template #auditorDetailsModal let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">{{currentEntry.Id}}</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <!--&lt;!&ndash; Nav tabs &ndash;&gt;-->
+    <!--<ul class="nav nav-tabs" role="tablist">-->
+      <!--<li class="nav-item">-->
+        <!--<a class="nav-link active" data-toggle="tab" href="#scheduler" role="tab">Base Info</a>-->
+      <!--</li>-->
+      <!--<li class="nav-item">-->
+        <!--<a class="nav-link" data-toggle="tab" href="#findings" role="tab">Findings</a>-->
+      <!--</li>-->
+      <!--<li class="nav-item">-->
+        <!--<a class="nav-link" data-toggle="tab" href="#followUp" role="tab">Follow-Up</a>-->
+      <!--</li>-->
+    <!--</ul>-->
+    <!--&lt;!&ndash; Tab panes &ndash;&gt;-->
+    <!--<div class="tab-content">-->
+      <!--<div class="tab-pane active" id="scheduler" role="tabpanel">-->
+        <!--<p-fieldset legend="Schedule" [toggleable]="true">-->
+          <!--<div class="container-fluid">-->
+            <!--<div><strong>Scheduler Number</strong>: {{currentFinding.Scheduler.SchedulerNumber}}</div>-->
+            <!--<div><strong>Location</strong>: {{currentFinding.Scheduler.ScopeDetails.Scope.Location}}</div>-->
+            <!--<div><strong>Scope</strong>: {{currentFinding.Scheduler.ScopeDetails.Name}}</div>-->
+          <!--</div>-->
+
+        <!--</p-fieldset>-->
+        <!--<p-fieldset class="d-block mt-2" legend="Status" [toggleable]="true">-->
+          <!--<div>{{currentFinding.Status.Name}}</div>-->
+        <!--</p-fieldset>-->
+        <!--<p-fieldset class="d-block mt-2" legend="Inspectors" [toggleable]="true">-->
+          <!--<div *ngFor="let auditor of currentFinding.Scheduler.Auditors">-->
+            <!--{{auditor.FullName}}-->
+          <!--</div>-->
+        <!--</p-fieldset>-->
+        <!--<p-fieldset class="d-block mt-2" legend="Date" [toggleable]="true">-->
+          <!--<div class="row">-->
+            <!--<div class="col-md-6"><strong>Start Date:</strong>{{currentFinding.Scheduler.ShortDateSchedulerStartDate}}</div>-->
+            <!--<div class="col-md-6"><strong>End Date:</strong>{{currentFinding.Scheduler.ShortDateSchedulerEndDate}}</div>-->
+            <!--<div class="col-md-6"><strong>Performed Start Date:</strong>{{currentFinding.Scheduler.ShortDatePerformedStartDate}}</div>-->
+            <!--<div class="col-md-6"><strong>Performed End Date:</strong>{{currentFinding.Scheduler.ShortDatePerformedEndDate}}</div>-->
+          <!--</div>-->
+        <!--</p-fieldset>-->
+      <!--</div>-->
+      <!--<div class="tab-pane" id="findings" role="tabpanel">-->
+        <!--<p-dataTable [value]="currentFinding.Scheduler.Findings" tableStyleClass="red-border" >-->
+          <!--<p-column field="FindingNumber" header="Finding#" [style]="{'width':'100px'}"></p-column>-->
+          <!--<p-column field="Details" header="Details"></p-column>-->
+          <!--<p-column field="RefrenceNumber" header="Refrence#" [style]="{'width':'100px'}"></p-column>-->
+          <!--<p-column field="Level" header="Level" [style]="{'width':'100px'}"></p-column>-->
+          <!--<p-column header="Is Final" [style]="{'width':'50px'}">-->
+            <!--<ng-template let-row="rowData"  pTemplate="body">-->
+              <!--<i class="fa fa-check" *ngIf="row.IsFinal"></i>-->
+            <!--</ng-template>-->
+          <!--</p-column>-->
+        <!--</p-dataTable>-->
+        <!--<p-panel header="Attachments" class="panel-no-pad">-->
+          <!--<p-dataTable [value]="findingBlobs" >-->
+            <!--<p-column header="#" [sortable]="true">-->
+              <!--<ng-template let-col let-period="rowData" let-ri="rowIndex"   pTemplate="body">{{ri+1}}</ng-template>-->
+            <!--</p-column>-->
+            <!--<p-column field="FileName" header="File Name" [sortable]="true">-->
+              <!--<ng-template let-row="rowData"  pTemplate="body">-->
+                <!--<a [href]="row.Link" target="_blank">{{row.FileName}}</a>-->
+              <!--</ng-template>-->
+            <!--</p-column>-->
+          <!--</p-dataTable>-->
+        <!--</p-panel>-->
+      <!--</div>-->
+      <!--<div class="tab-pane" id="followUp" role="tabpanel">-->
+        <!--<p-panel class="panel-no-pad" header="Follow-Up" [ngStyle]="{'min-height': 250}">-->
+          <!--<p-dataTable [value]="currentFinding.AuditeeFindings"  tableStyleClass="red-border"  >-->
+            <!--<p-column [style]="{'width':'100px'}"  field="ActionDate" header="ActionDate">-->
+              <!--<ng-template let-row="rowData" pTemplate="body">-->
+                <!--{{row.ActionDate}}-->
+                <!--<span *ngIf="row.AuditorFindings.length>0">{{row.AuditorFindings[row.AuditorFindings.length-1].CreatedDate}}</span>-->
+              <!--</ng-template>-->
+            <!--</p-column>-->
+            <!--<p-column [style]="{'width':'100px'}"  header="Author">-->
+              <!--<ng-template let-row="rowData" pTemplate="body">-->
+                <!--<span *ngIf="row.AuditorFindings.length>0">{{row.AuditorFindings[row.AuditorFindings.length-1].CreatedBy}}</span>-->
+              <!--</ng-template>-->
+            <!--</p-column>-->
+            <!--<p-column header="Comment">-->
+              <!--<ng-template let-row="rowData"  pTemplate="body">-->
+                <!--<div *ngFor="let item of row.ReasonActions">-->
+                  <!--<p>Reason:{{item.Reason}}<p>-->
+                  <!--<p>Action:{{item.Action}}<p>-->
+                <!--</div>-->
+                <!--<p>Response:<span *ngIf="row.AuditorFindings.length>0">{{row.AuditorFindings[row.AuditorFindings.length-1].Description}}</span><p>-->
+              <!--</ng-template>-->
+            <!--</p-column>-->
+            <!--<p-column styleClass="col-button">-->
+              <!--<ng-template pTemplate="header">-->
+              <!--</ng-template>-->
+              <!--<ng-template let-row="rowData" pTemplate="body">-->
+                <!--<div class="btn-group" role="group" aria-label="First group">-->
+                  <!--<button type="button" class="btn btn-info"-->
+                          <!--(click)="showAuditeeAttachments(row)">-->
+                    <!--<span class="fa fa-paperclip"></span>-->
+                  <!--</button>-->
+                <!--</div>-->
+              <!--</ng-template>-->
+
+            <!--</p-column>-->
+          <!--</p-dataTable>-->
+        <!--</p-panel>-->
+        <!--<p-panel header="Attachments" class="panel-no-pad">-->
+          <!--<p-dataTable [value]="auditeeFindingBlobs" >-->
+            <!--<p-column header="#" [sortable]="true">-->
+              <!--<ng-template let-col let-period="rowData" let-ri="rowIndex"   pTemplate="body">{{ri+1}}</ng-template>-->
+            <!--</p-column>-->
+            <!--<p-column field="FileName" header="File Name" [sortable]="true">-->
+              <!--<ng-template let-row="rowData"  pTemplate="body">-->
+                <!--<a [href]="row.Link" target="_blank">{{row.FileName}}</a>-->
+              <!--</ng-template>-->
+            <!--</p-column>-->
+          <!--</p-dataTable>-->
+        <!--</p-panel>-->
+      <!--</div>-->
+    <!--</div>-->
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Ok</button>
+  </div>
+</ng-template>

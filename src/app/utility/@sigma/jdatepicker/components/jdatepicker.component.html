@@ -1,0 +1,22 @@
+<div>
+    <div class="header">
+        <a class="month" (click)="monthDialog = !monthDialog">{{monthes[month]}}</a>
+        <a class="year" (click)="yearDialogShow()">{{year}}</a>
+    </div>
+    <div class="content">
+        <div class="day-dialog">
+            <div class="weekDays">
+                <span *ngFor="let item of weekDays">{{item}}</span>
+            </div>
+            <div class="days">
+                <a *ngFor="let item of getDays()" [ngClass]="{day:item != null,active:isSelectedDay(item)}" (click)="setDay(item)">{{item}}</a>
+            </div>
+        </div>
+        <div class="month-dialog" [ngClass]="{show:monthDialog}">
+            <a *ngFor="let item of monthes;let index = index" [ngClass]="{active:index == month}" (click)="setMonth(index)">{{item}}</a>
+        </div>
+        <div class="year-dialog" [ngClass]="{show:yearDialog}">
+            <input type="number" [(ngModel)]="year" (change)="yearDialogClose()" (blur)="yearDialogClose()"/>
+        </div>
+    </div>
+</div>

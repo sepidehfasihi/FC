@@ -1,0 +1,121 @@
+<p-growl   [style.zIndex]="99999999" [(value)]="msgs"></p-growl>﻿
+<div *ngIf="showNewResult" >
+  <p-dialog header="افزودن نتیجه" modal="modal" [appendTo]="'body'"   [(visible)]="showNewResult">
+
+    <div class="container" style="height: 200px;">
+      <form #natijekalaCreateForm="ngForm">
+        <div class="form-group row">
+          <div class="col">
+            <label for="team" class="col-3 col-form-label">تیم اول:</label>
+            <div class="col">
+              <p-dropdown [options]="cars"
+                          placeholder="انتخاب کنید"
+                          name="carsTeam1"
+                          [(ngModel)]="selectedTeam1" [style]="{'width':'150px'}" filter="true">
+                <ng-template let-item pTemplate="selectedItem">
+                  <span style="vertical-align:middle">{{item.label}}</span>
+                </ng-template>
+                <ng-template let-car pTemplate="item">
+                  <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+                    <div style="font-size:14px;float:right;margin-top:4px">{{car.label}}</div>
+                  </div>
+                </ng-template>
+              </p-dropdown>
+            </div>
+          </div>
+          <div class="col">
+
+            <div style="width:100px;">
+              <input type="text" pKeyFilter="num"
+                     id="natije1"
+                     #team1Natije="ngModel" required
+                     name="team1" maxlength="2" [(ngModel)]="currentResultEntry.Team1Result" placeholder="نتیجه تیم اول">
+              <div [hidden]="team1Natije.valid || team1Natije.untouched">
+                <div [hidden]="!team1Natije.hasError('required')" class="text-danger">
+                  نتیجه تیم اول را وارد کنید
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="form-group row">
+          <div class="col">
+            <label for="team" class="col-3 col-form-label">تیم دوم:</label>
+            <div class="col">
+              <p-dropdown [options]="teamList"
+                          name="carsTeam2"
+                          placeholder="انتخاب کنید"
+                          [(ngModel)]="selectedTeam2" [style]="{'width':'150px'}" filter="true">
+                <ng-template let-item pTemplate="selectedItem">
+                  <span style="vertical-align:middle">{{item.label}}</span>
+                </ng-template>
+                <ng-template let-car pTemplate="item">
+                  <div class="ui-helper-clearfix" style="position: relative;height: 25px;">
+                    <div style="font-size:14px;float:right;margin-top:4px">{{car.label}}</div>
+                  </div>
+                </ng-template>
+              </p-dropdown>
+            </div>
+          </div>
+          <div class="col">
+            <div style="width:100px;">
+
+              <input type="text"
+                     name="team2"  pKeyFilter="num"  maxlength="2"
+                     [(ngModel)]="currentResultEntry.Team2Result" placeholder="نتیجه تیم دوم"
+                     id="natije2"
+                     #team2Natije="ngModel" required>
+              <div [hidden]="team2Natije.valid || team2Natije.untouched">
+                <div [hidden]="!team2Natije.hasError('required')" class="text-danger">
+                 نتیجه تیم دوم را وارد کنید
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-6">
+          <button type="submit" class="btn btn-primary" [disabled]="!natijekalaCreateForm.valid" (click)="saveResult($event)">اضافه کردن به لیست</button>
+
+        </div>
+      </form>
+
+    </div>
+    <p-footer>
+
+    </p-footer>
+  </p-dialog>
+
+</div>
+
+<ba-card class="col-xlg-2 col-xl-2 col-lg-12 col-sm-12 col-12" >
+
+  <p-button label=""
+            (onClick)="Back($event)"
+            icon="fa fa-arrow-left" iconPos="left">
+  </p-button>
+  <div class="row" style="text-align: right">
+    <div class="col">
+      <button type="button" class="btn btn-default"
+              (click)="openResult($event)">افزودن نتیجه</button>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row" *ngFor="let res of results; index as i">
+      <div class="col-2">{{res.Team1.Name}} : </div>
+      <div >{{res.Team1Result}}</div>
+      <div class="col-2">{{res.Team2.Name}} : </div>
+      <div >{{res.Team2Result}}</div>
+    </div>
+  </div>
+
+
+  <div class="col-6">
+    <div class="row" style="text-align: left" *ngIf="isResult">
+      <button type="submit" class="btn btn-primary" (click)="savedResults($event)" >ثبت نتایج </button>
+
+    </div>
+
+  </div>
+
+
+</ba-card>

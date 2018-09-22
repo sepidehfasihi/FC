@@ -1,0 +1,57 @@
+.text-right {
+  margin-right: 7px !important;
+  margin-top: 7px !important;
+}
+
+.ui-widget-header{
+  border: none !important;
+}
+
+.ui-sidebar{
+  width: 430px !important;
+}
+
+
+.ui-chkbox-box.ui-state-active, .ui-radiobutton-box.ui-state-active{
+  color: #186ba0;
+}
+
+.form-control[disabled], .form-control[readonly], fieldset[disabled] .form-control{
+  color: #000000 !important;
+}
+
+.ui-widget-header .ui-button, .ui-widget-content .ui-button, .ui-widget.ui-button, .ui-button{
+  background: #4a6c2f !important;
+  border: 1px solid #4a6c2f !important;
+}
+
+.ui-datatable tbody > tr.ui-widget-content.ui-datatable-odd{
+  //background-color: #cfdfda !important;
+}
+
+.ui-datatable th.ui-state-default{
+  //background: #c6bab0 !important;
+}
+
+.btn-primary:not(:disabled):not(.disabled):active, .btn-primary:not(:disabled):not(.disabled).active, .show > .btn-primary.dropdown-toggle{
+  background-color:#4a6c2f !important;
+  border-color: #4a6c2f !important;
+}
+
+
+button.btn.btn-primary{
+  background-color:#4a6c2f !important;
+  border-color: #4a6c2f !important;
+}
+
+button.btn.btn-info{
+  background-color: #236477 !important;
+  border-color: #236477 !important;
+
+}
+
+
+div.myGrowl {
+  z-index: 999999!important // "important" rules override styles
+}
+

@@ -1,0 +1,42 @@
+<h3 class="first">Attachments</h3>
+<p-dataTable [value]="blobs" *ngIf="showAttachments">
+    <p-column header="#" [sortable]="true">
+        <ng-template let-col let-period="rowData" let-ri="rowIndex"   pTemplate="body">{{ri+1}}</ng-template>
+    </p-column>
+    <p-column field="FileName" header="File Name" [sortable]="true">
+        <ng-template let-row="rowData"  pTemplate="body">
+            <a [href]="row.Link" target="_blank">{{row.FileName}}</a>
+        </ng-template>
+    </p-column>
+  <p-column styleClass="col-button" *ngIf="canDelete">
+    <ng-template pTemplate="header">
+    </ng-template>
+    <ng-template let-row="rowData" pTemplate="body">
+      <div class="btn-group" role="group" aria-label="First group">
+        <button type="button" class="btn btn-danger" (click)="remove(deleteModal,row)">
+          <span class="fa fa-trash"></span>
+        </button>
+      </div>
+    </ng-template>
+
+  </p-column>
+
+</p-dataTable>
+<hr>
+<p-fileUpload #fileUpload multiple="multiple" customUpload="true" (uploadHandler)="uploadFiles($event,fileUpload)"></p-fileUpload>
+<!--modal Delete--->
+<ng-template #deleteModal let-c="close" let-d="dismiss">
+  <div class="modal-header">
+    <h4 class="modal-title">Delete Item</h4>
+    <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>Are you sure?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-danger" (click)="confirmRemove()">Delete</button>
+    <button type="button" class="btn btn-outline-dark" #closeDeleteModal (click)="c('Close click')">Close</button>
+  </div>
+</ng-template>

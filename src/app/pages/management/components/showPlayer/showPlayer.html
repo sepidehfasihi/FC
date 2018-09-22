@@ -1,0 +1,284 @@
+<div class="widgets">
+  <p-accordion [multiple]="true">
+    <p-accordionTab header="اطلاعـات پایه">
+      <div style="text-align: right !important;">
+        <div class="form-group">
+          <div class="col-4" style="font-size: 15px; float: right;">کد بازیکن :  </div>
+          <div class="col-8" style="float: right;"> <strong style="font-size: 12px;">{{currentEntryPlayer.CodeStr}}</strong></div>
+
+        </div>
+
+        <br/>
+        <div class="form-group">
+          <div class="col-4" style="font-size: 15px; float: right;">نام و نام خانوادگی :</div>
+          <div class="col-8" style="float: right;">
+            <strong style="font-size: 12px;">
+              {{ currentEntryPlayer.Name + ' ' + currentEntryPlayer.Family}}
+            </strong></div>
+
+        </div>
+        <br/>
+
+        <div class="form-group">
+          <div class="col-4" style="font-size: 15px; float: right;">
+            نام پدر :
+          </div>
+          <div class="col-8" style="float: right;">
+            <strong style="font-size: 12px;">
+              {{currentEntryPlayer.FatherName}}
+            </strong></div>
+
+        </div>
+        <br/>
+
+        <div class="form-group">
+          <div class="col-4" style="font-size: 15px; float: right;">
+            سن :
+          </div>
+          <div class="col-8" style="float: right;">
+            <strong style="font-size: 12px;">
+              {{currentEntryPlayer.Age}}
+            </strong></div>
+
+        </div>
+        <br/>
+
+        <div class="form-group">
+          <div class="col-4" style="font-size: 15px; float: right;">
+            دسته بندی ورزشی :
+          </div>
+          <div class="col-8" style="float: right;">
+            <strong style="font-size: 12px;">
+              {{selectedCategories}}
+            </strong></div>
+
+        </div>
+        <br/>
+
+        <div class="form-group">
+          <div class="col-4" style="font-size: 15px; float: right;">
+            توضیحات :
+          </div>
+          <div class="col-8" style="float: right;">
+            <strong style="font-size: 12px;">
+              {{currentEntryPlayer.Description}}
+            </strong></div>
+
+        </div>
+
+
+      </div>
+
+
+     </p-accordionTab>
+    <p-accordionTab header="مشخصات تماس">
+      <div style="text-align: right !important;">
+        <div class="form-group">
+          <div class="col-4" style="font-size: 15px; float: right;">تلفن : </div>
+          <div class="col-8" style="float: right;"> <strong style="font-size: 12px;">{{currentEntryPlayer.PlayerContactInformation.Telephone}}</strong></div>
+
+        </div>
+
+        <br/>
+        <div class="form-group">
+          <div class="col-4" style="font-size: 15px; float: right;">شماره های همراه :</div>
+          <div class="col-8" style="float: right;">
+            <strong style="font-size: 12px;" *ngFor="let mo of currentEntryPlayer.PlayerPhone">
+
+              {{mo.Phone}}
+              <br/>
+
+            </strong>
+          </div>
+
+        </div>
+        <div style="text-align: right !important;">
+          <div class="form-group">
+            <div class="col-4" style="font-size: 15px; float: right;">آدرس :</div>
+            <div class="col-8" style="float: right;"> <strong style="font-size: 12px;">{{currentEntryPlayer.PlayerContactInformation.Address}}</strong></div>
+
+          </div>
+      </div>
+      </div>
+    </p-accordionTab>
+    <p-accordionTab header="اطلاعات شهریه">
+      <div style="text-align: right !important;">
+        <div class="form-group">
+        <div class="col-4" style="font-size: 15px; float: right;">تاریخ ثبت نام : </div>
+        <div class="col-8" style="float: right;"> <strong style="font-size: 12px;">{{currentEntryPlayer.StartingDateOfCredit}}</strong></div>
+
+      </div>
+
+        <br/>
+        <div class="form-group">
+          <div class="col-4" style="font-size: 15px; float: right;">تاریخ پایان اعتبار : </div>
+          <div class="col-8" style="float: right;"> <strong style="font-size: 12px;">{{currentEntryPlayer.EndDateOfCredit}}</strong></div>
+
+        </div>
+
+        <br/>
+        <div class="form-group">
+          <div class="col-4" style="font-size: 15px; float: right;">مبلغ شهریه : </div>
+          <div class="col-8" style="float: right;"> <strong style="font-size: 12px;">{{currentEntryPlayer.TuitionFee}}</strong></div>
+
+        </div>
+
+        <br/>
+      </div>
+     </p-accordionTab>
+    <p-accordionTab header="سوابق بیماری">
+      <div style="text-align: right !important;">
+        <div class="form-group">
+          <div class="col-4" style="font-size: 15px; float: right;">سابقه بیماری : </div>
+          <div class="col-8" style="float: right;"> <strong style="font-size: 12px;">{{currentEntryPlayer.SicknessHistory.Description}}</strong></div>
+
+
+        </div>
+
+        <br/>
+
+      </div>
+    </p-accordionTab>
+  </p-accordion>
+
+  <!--<div class="row">-->
+    <!--<div class="col-md-6">-->
+      <!--<div>-->
+        <!--<ba-card cardTitle="اطلاعات پایه " baCardClass="with-scroll">-->
+          <!--<form>-->
+            <!--<div class="form-group">-->
+              <!--<label for="playerCode">کد</label>-->
+              <!--<input type="text" class="form-control" id="playerCode" name="playerCode" [(ngModel)]="currentEntryPlayer.CodeStr">-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<label for="playerName">نام</label>-->
+              <!--<input type="text" class="form-control" id="playerName" name="playerName" [(ngModel)]="currentEntryPlayer.Name">-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<label for="family">نام خانوادگی</label>-->
+              <!--<input type="text" class="form-control" id="family" name="family" [(ngModel)]="currentEntryPlayer.Family">-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<label for="fatherName">نام پدر</label>-->
+              <!--<input type="text" class="form-control" id="fatherName" name="fatherName" [(ngModel)]="currentEntryPlayer.FatherName">-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<label for="age">سن</label>-->
+              <!--<input type="text" class="form-control" id="age" pKeyFilter="num" maxlength="3" name="age" [(ngModel)]="currentEntryPlayer.Age">-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<label for="sportCategoryName">دسته بندی ورزشی</label>-->
+              <!--<p-dropdown [options]="sportCategories" [(ngModel)]="selectedCategories"-->
+                          <!--name="serviceModel"-->
+                          <!--placeholder="انتخاب کنید"-->
+                          <!--[style]="{'width':'150px'}" filter="true">-->
+                <!--<ng-template let-item pTemplate="selectedItem">-->
+                  <!--<span style="vertical-align:middle">{{item.label}}</span>-->
+                <!--</ng-template>-->
+                <!--<ng-template let-service pTemplate="item">-->
+                  <!--<div class="ui-helper-clearfix" style="position: relative;height: 25px;">-->
+                    <!--<div style="font-size:14px;float:right;margin-top:4px">{{service.label}}</div>-->
+                  <!--</div>-->
+                <!--</ng-template>-->
+              <!--</p-dropdown>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<label for="description">توضیحات</label>-->
+              <!--<textarea type="text" class="form-control" id="description" name="description" [(ngModel)]="currentEntryPlayer.Description"></textarea>-->
+            <!--</div>-->
+
+          <!--</form>-->
+        <!--</ba-card>-->
+      <!--</div>-->
+
+      <!--<div>-->
+        <!--<ba-card cardTitle="سوابق بیماری" baCardClass="with-scroll">-->
+          <!--<form>-->
+
+            <!--<div class="form-group">-->
+              <!--<label for="sicknessHistoryDescription">توضیحات</label>-->
+              <!--<textarea type="text" class="form-control" id="sicknessHistoryDescription" name="sicknessDescription" [(ngModel)]="currentEntrySicknessHistory.Description"></textarea>-->
+            <!--</div>-->
+          <!--</form>-->
+        <!--</ba-card>-->
+      <!--</div>-->
+    <!--</div>-->
+    <!--<div class="col-md-6">-->
+      <!--<div>-->
+        <!--<ba-card cardTitle="راه های ارتباطی بازیکن" baCardClass="with-scroll">-->
+          <!--<form>-->
+            <!--<div class="form-group">-->
+              <!--<label for="Telephone">تلفن</label>-->
+              <!--<input type="text" class="form-control"-->
+                     <!--id="Telephone" pKeyFilter="num" name="telephone" [(ngModel)]="currentEntryPlayerContactInformation.Telephone">-->
+            <!--</div>-->
+            <!--<div class="form-group" *ngFor="let phone of playerPhone; index as i" >-->
+              <!--<label for="phone">همراه {{i + 1}} </label>-->
+              <!--<div class="input-group" *ngIf="i == 0 ">-->
+                <!--<input  type="text" class="form-control with-danger-addon"-->
+                       <!--name="phone{{i}}"-->
+                       <!--[(ngModel)]="phone.Phone"-->
+                       <!--pKeyFilter="num">-->
+                <!--<span class="input-group-btn">-->
+      <!--<button class="btn btn-danger" (click)="addNewPhone(i, '+')"  type="button">+</button>-->
+  <!--</span>-->
+              <!--</div>-->
+              <!--<div class="input-group" *ngIf="i > 0 ">-->
+                <!--<input type="text"  class="form-control with-danger-addon"-->
+                       <!--name="phone{{i}}"-->
+                       <!--[(ngModel)]="phone.Phone"-->
+                       <!--pKeyFilter="num">-->
+                <!--<span class="input-group-btn">-->
+      <!--<button class="btn btn-danger" (click)="addNewPhone(i, '-')"  type="button">-</button>-->
+  <!--</span>-->
+              <!--</div>-->
+
+            <!--</div>-->
+
+            <!--<div class="form-group">-->
+              <!--<label for="playerAddress">آدرس</label>-->
+              <!--<textarea type="text" class="form-control"-->
+                        <!--id="playerAddress" name="address" [(ngModel)]="currentEntryPlayerContactInformation.Address"></textarea>-->
+            <!--</div>-->
+
+          <!--</form>-->
+        <!--</ba-card>-->
+      <!--</div>-->
+      <!--<div>-->
+        <!--<ba-card cardTitle="اطلاعات شهریه" baCardClass="with-scroll">-->
+          <!--<form>-->
+            <!--<div class="form-group">-->
+              <!--<label for="ُStartingDateOfCredit">تاریخ ثبت نام</label>-->
+
+              <!--<p-inputMask mask="9999/99/99" name="Birthdate"-->
+                           <!--[(ngModel)]="startDate"-->
+                           <!--placeholder="0000/00/00" ></p-inputMask>-->
+            <!--</div>-->
+            <!--<div class="form-group">-->
+              <!--<label for="TuitionFee">مبلغ شهریه </label>-->
+              <!--<input type="text" class="form-control" id="TuitionFee" name="TuitionFee" [(ngModel)]="currentEntryPlayer.TuitionFee">-->
+            <!--</div>-->
+            <!--&lt;!&ndash;<div class="form-group">&ndash;&gt;-->
+            <!--&lt;!&ndash;<label for="playerRegistrationType">نوع ثبت نام</label>&ndash;&gt;-->
+            <!--&lt;!&ndash;<select class="form-control" id="playerRegistrationType" name="TuitionFee" [(ngModel)]="">&ndash;&gt;-->
+            <!--&lt;!&ndash;<option>3 ماهه</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;<option>6 ماهه</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;<option>1 ساله</option>&ndash;&gt;-->
+            <!--&lt;!&ndash;</select>&ndash;&gt;-->
+            <!--&lt;!&ndash;</div>&ndash;&gt;-->
+            <!--<div class="form-group">-->
+              <!--<label for="endDateOfCredit">تاریخ پایان اعتبار</label>-->
+              <!--<p-inputMask mask="9999/99/99" name="endDate"-->
+                           <!--[(ngModel)]="endDate"-->
+                           <!--placeholder="0000/00/00" ></p-inputMask>-->
+            <!--</div>-->
+            <!--<button type="button" class="btn btn-default" (click)="savePlayer($event)">ثبت </button>-->
+          <!--</form>-->
+        <!--</ba-card>-->
+      <!--</div>-->
+
+
+    <!--</div>-->
+  <!--</div>-->
+ <!---->
+</div>

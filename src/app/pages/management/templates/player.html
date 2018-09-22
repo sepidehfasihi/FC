@@ -1,0 +1,99 @@
+<p-growl [style.zIndex]="99999999" [(value)]="msgs"></p-growl>﻿
+
+<p-confirmDialog header="هشدار" icon="fa fa-question-circle" width="425" #cd>
+  <p-footer>
+    <button type="button" pButton label="بلـه"  class="ok"(click)="cd.accept()"></button>
+
+    <button type="button" pButton label="خیـر" (click)="cd.reject()"></button>
+  </p-footer>
+</p-confirmDialog>
+<!--//////////////////////////////////////////// ثبت نماینده جدید//////////////-->
+
+<div *ngIf="showPlayerDetail" >
+  <p-dialog header="مشخصات بازیکن" modal="modal" appendTo="body"
+            [(visible)]="showPlayerDetail">
+<showPlayer [showObj]="currentObj"></showPlayer>
+  </p-dialog>
+
+</div>
+
+<div *ngIf="newPlayer">
+  <newPlayer (savedPlayer)="saveNewPlayer($event)"></newPlayer>
+
+</div>
+<!--///////////////////////////////////-->
+<ba-card class="col-xlg-6 col-xl-6 col-lg-12 col-sm-12 col-12" *ngIf="originalPage">
+
+
+
+  <div class="button-wrapper">
+    <button type="button" class="btn btn-default"
+            (click)="showNewPlayer($event)">ثبت بازیکن جدید</button>
+  </div>
+
+  <br/>
+  <br/>
+  <br/>
+
+  <p-dataTable [value]="players" [immutable]=false
+               selectionMode="single"
+               [(selection)]="selectedPlayer" (onRowDblclick)="showDescription($event)">
+    <p-column field="Name" header="نام" [filter]="true"></p-column>
+    <p-column field="Family" header="نام خانوادگی" [filter]="true"></p-column>
+    <p-column field="FatherName" header="نام پدر" [filter]="true"></p-column>
+    <p-column styleClass="col-button" header="تلفن های تماس" [filter]="true">
+      <ng-template  let-row="rowData" let-i="rowIndex" pTemplate="body">
+
+        <div *ngFor="let phone of row.PlayerPhone">
+          {{phone.Phone}}
+        </div>
+        <br/>
+      </ng-template>
+    </p-column>
+    <p-column field="PlayerContactInformation.Address" header="آدرس" [filter]="true"></p-column>
+    <!--<p-column styleClass="col-button">-->
+      <!--<ng-template  let-row="rowData" let-i="rowIndex" pTemplate="body">-->
+        <!--<div class="btn-group" role="group" aria-label="First group" >-->
+          <!--<button title="Edit" type="button" class="btn btn-info"-->
+                  <!--(click)="edit(row,i)" >-->
+            <!--<span class="fa fa-edit"></span>-->
+          <!--</button>-->
+          <!--<button title="Remove" type="button" class="btn btn-danger"  (click)="deleteNode(row, i)">-->
+            <!--<span class="fa fa-trash"></span>-->
+          <!--</button>-->
+        <!--</div>-->
+      <!--</ng-template>-->
+    <!--</p-column>-->
+  </p-dataTable>
+<!--////////////////////////////////////////////جدول///////////////////////-->
+
+  <!--<p-dataTable [value]="agents"-->
+               <!--[globalFilter]="gb"-->
+               <!--(onRowDblclick)="showAgent($event)"-->
+               <!--scrollable="true"-->
+               <!--scrollHeight="300px"-->
+               <!--selectionMode="single"-->
+               <!--[(selection)]="selectedAgent"-->
+  <!--&gt;-->
+
+    <!--<p-column field="Code" header="کد" [filter]="true" ></p-column>-->
+    <!--<p-column field="Name" header="عنوان نماینده" [filter]="true" ></p-column>-->
+    <!--<p-column field="Tel" header="تلفن" [filter]="true"></p-column>-->
+    <!--<p-column field="Phone" header="همراه" [filter]="true"></p-column>-->
+    <!--<p-column styleClass="col-button">-->
+      <!--<ng-template  let-row="rowData" let-i="rowIndex" pTemplate="body">-->
+        <!--<div class="btn-group" role="group" aria-label="First group" >-->
+          <!--<button title="Edit" type="button" class="btn btn-info"-->
+                  <!--(click)="showAgentFromRow(row,i)" >-->
+            <!--<span class="fa fa-edit"></span>-->
+          <!--</button>-->
+          <!--<button title="Remove" type="button" class="btn btn-danger"  (click)="deleteNode(row, i)">-->
+            <!--<span class="fa fa-trash"></span>-->
+          <!--</button>-->
+        <!--</div>-->
+      <!--</ng-template>-->
+    <!--</p-column>-->
+  <!--</p-dataTable>-->
+
+</ba-card>
+

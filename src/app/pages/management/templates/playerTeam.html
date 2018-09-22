@@ -1,0 +1,111 @@
+<p-growl [style.zIndex]="99999999" [(value)]="msgs"></p-growl>﻿
+
+<p-confirmDialog header="هشدار" icon="fa fa-question-circle" width="425" #cd>
+  <p-footer>
+    <button type="button" pButton label="بلـه"  class="ok"(click)="cd.accept()"></button>
+
+    <button type="button" pButton label="خیـر" (click)="cd.reject()"></button>
+  </p-footer>
+</p-confirmDialog>
+<!--//////////////////////////////////////////// ثبت نماینده جدید//////////////-->
+
+
+<div *ngIf="showTeamPlayList" >
+  <p-dialog header="لیست بازی های {{teamName}}" modal="modal" [appendTo]="'body'"   [(visible)]="showTeamPlayList">
+
+    <p-dataTable [value]="teamPlayList" [immutable]=false
+                 selectionMode="single"
+                 [(selection)]="selectedPlayLis" >
+      <p-column styleClass="col-button" header="ردیف" >
+        <ng-template  let-row="rowData" let-i="rowIndex" pTemplate="body">
+          <div class="btn-group" role="group" aria-label="First group" >
+            {{ i+1 }}
+          </div>
+        </ng-template>
+
+      </p-column>
+      <p-column field="Team1.Name" header="تیم اول" [filter]="true" [sortable]="true" ></p-column>
+      <p-column field="Team1Result" header="نتیجه تیم اول" [filter]="true" [sortable]="true"></p-column>
+      <p-column field="Team2.Name" header="تیم دوم" [filter]="true" [sortable]="true"></p-column>
+      <p-column field="Team2Result" header="نتیجه تیم دوم" [filter]="true" [sortable]="true"></p-column>
+
+    </p-dataTable>
+    <p-footer>
+
+    </p-footer>
+  </p-dialog>
+
+</div>
+
+
+<div *ngIf="newTeam">
+  <newTeam (savedTeam)="saveTeams($event)" [idOfGroup]="GroupId" [editObj]="editTeamss" (goBack)="backToOrgg()"></newTeam>
+
+</div>
+
+<div *ngIf="newResult">
+  <newResult (savedEvent)="saveResults($event)" [teams]="teamList" (goBack)="backToOrgg()"></newResult>
+
+</div>
+<!--///////////////////////////////////-->
+<ba-card class="col-xlg-6 col-xl-6 col-lg-12 col-sm-12 col-12" *ngIf="originalPlayerTeamPage">
+
+  <p-button label=""
+            (onClick)="Backk($event)"
+            icon="fa fa-arrow-left" iconPos="left">
+  </p-button>
+
+  <br/>
+  <br/>
+
+  <div class="row" style="text-align: right">
+    <div class="col">
+      <button type="button" class="btn btn-default"
+              (click)="showNewTeam($event)">ثبت تیم جدید</button>
+      <button type="button" class="btn btn-default"
+              (click)="showNewResults($event)">افزودن نتایج جدید</button>
+    </div>
+
+
+  </div>
+
+  <br/>
+  <br/>
+  <br/>
+
+  <p-dataTable [value]="teamList" [immutable]=false
+               selectionMode="single"
+               [(selection)]="selectedTeam"
+               (onRowDblclick)="showTeamsResultPage($event)"
+  >
+    <p-column styleClass="col-button" header="ردیف" >
+      <ng-template  let-row="rowData" let-i="rowIndex" pTemplate="body">
+        <div class="btn-group" role="group" aria-label="First group" >
+          {{ i+1 }}
+        </div>
+      </ng-template>
+
+    </p-column>
+    <p-column field="Name" header="نام تیم" [filter]="true" [sortable]="true" ></p-column>
+    <p-column field="PlayNo" header="بازی" [filter]="true" [sortable]="true"></p-column>
+    <p-column field="Win" header="برد" [filter]="true" [sortable]="true"></p-column>
+    <p-column field="Equal" header="مساوی" [filter]="true" [sortable]="true"></p-column>
+    <p-column field="Lost" header="باخت" [filter]="true" [sortable]="true"></p-column>
+    <p-column field="Zade" header="زده" [filter]="true" [sortable]="true"></p-column>
+    <p-column field="Khorde" header="خورده" [filter]="true" [sortable]="true"></p-column>
+    <p-column field="difference" header="تفاضل" [filter]="true" [sortable]="true"></p-column>
+    <p-column field="Score" header="امتیاز" [filter]="true" [sortable]="true"></p-column>
+
+    <p-column styleClass="col-button" >
+      <ng-template  let-row="rowData" let-i="rowIndex" pTemplate="body">
+        <div class="btn-group" role="group" aria-label="First group" >
+          <button title="Edit" type="button" class="btn btn-info"
+                  (click)="editGroups(row,i)" >
+            <span class="fa fa-edit"></span>
+          </button>
+        </div>
+      </ng-template>
+    </p-column>
+  </p-dataTable>
+</ba-card>
+

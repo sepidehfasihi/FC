@@ -1,0 +1,23 @@
+{
+  "name": "sigma-inputmask",
+  "version": "1.0.2",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": ""
+  },
+  "keywords": [
+    "inputmask",
+    "ng-inputmask"
+  ],
+  "author": "sina ghadri",
+  "license": "ISC",
+  "bugs": {
+    "url": ""
+  },
+  "homepage": ""
+}

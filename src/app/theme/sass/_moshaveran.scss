@@ -1,0 +1,859 @@
+
+
+.plus {
+
+  margin-right: 6px;
+}
+
+
+.modal-buttons .btn {
+  margin-right: 20px;
+}
+
+.menu {
+  cursor:pointer;
+  vertical-align: middle;
+  border-top:none;
+  border-bottom:none;
+  padding-top:0;
+  margin-top:0;
+  color:#0b1c2c;
+}
+.menu:hover {
+  border-radius: 10px;
+  border:none;
+  color:#47b0e0 !important;
+}
+
+.i:hover{
+  color:#47b0e0;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*---------- Wrapper --------------------*/
+
+
+
+ul {
+  text-align: center;
+}
+
+ul li {
+
+  cursor: pointer;
+
+}
+ul li.dropp {
+  position: relative;
+  top:2.5px;
+}
+ul > li {
+  display: inline-block;
+}
+ul li a {
+  line-height: 16px;
+  padding-right: 0px;
+  color: black;
+  height: 16px;
+}
+
+.modal-lg{
+  max-width: 500px;
+}
+
+
+.droppOut .triangle {
+  width: 0;
+  height: 0;
+  position: absolute;
+  border-left: 8px solid transparent;
+  border-right: 8px solid transparent;
+  border-bottom: 8px solid white;
+  top: -8px;
+  left: 50%;
+  margin-left: -8px;
+}
+.droppdownContain {
+  width: 160px;
+  position: absolute;
+  z-index: 4;
+  left: 50%;
+  margin-left: -25px; /* half of width */
+  top: -400px;
+
+
+}
+.droppOut {
+  width: 200px;
+  background: white;
+  float: right;
+  position: relative;
+  margin-top: 0px;
+  opacity: 0;
+  -webkit-border-radius: 4px;
+  -moz-border-radius: 4px;
+  border-radius: 4px;
+  -webkit-box-shadow: 0 1px 6px rgba(0,0,0,.15);
+  -moz-box-shadow: 0 1px 6px rgba(0,0,0,.15);
+  box-shadow: 0 1px 6px rgba(0,0,0,.15);
+  -webkit-transition: all .1s ease-out;
+  -moz-transition: all .1s ease-out;
+  -ms-transition: all .1s ease-out;
+  -o-transition: all .1s ease-out;
+  transition: all .1s ease-out;
+  text-align:right;
+
+}
+
+.droppOut ul {
+  float: right;
+  padding: 10px 0;
+  text-align:right;
+}
+.droppOut ul li {
+  text-align:right;
+  float: right;
+  width:190px;
+  padding: 0px 0 8px 8px;
+  margin: 0px 3px;
+  color: #777;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  border-radius: 2px;
+  -webkit-transition: background .1s ease-out;
+  -moz-transition: background .1s ease-out;
+  -ms-transition: background .1s ease-out;
+  -o-transition: background .1s ease-out;
+  transition: background .1s ease-out;
+}
+
+.droppOut ul li:hover {
+  background: #f6f6f6;
+}
+
+.dropmenu:hover {color:#0b1c2c;}
+.dropmenu {; color:#0b1c2c; }
+ul li:hover .droppdownContain { top: 20px; }
+ul li:hover .underline { border-bottom-color: #777; }
+ul li:hover .droppOut { opacity: 1; margin-top: 8px; }
+.item-menu{color:black;}
+
+
+
+/*---------- select multiple checkboxes for add and remove columns --------------------*/
+
+.multiselect {
+  width: 200px;
+}
+
+.selectBox {
+  position: relative;
+}
+
+.selectBox select {
+  width: 100%;
+  font-weight: bold;
+}
+
+.overSelect {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+}
+
+#checkboxes {
+  display: block;
+  border: 1px #dadada solid;
+}
+
+#checkboxes label {
+  display: block;
+}
+
+#checkboxes label:hover {
+  background-color: #1e90ff;
+}
+
+
+
+.modal-buttons .btn {
+  margin-right: 20px;
+}
+
+.modal-content {
+  //color: $dropdown-text;
+  width: 500px;
+  height: 400px;
+}
+
+.modal-content-alert{
+  width: 299px;
+  height: 132px;
+}
+
+.modal-content-deletealert{
+  width: 299px;
+  height: 132px;
+}
+
+.modal-control{
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  //font-size: 1rem;
+  color: #464a4c;
+  background-color: #fff;
+  background-image: none;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  box-shadow: none;
+  font-size: 14px;
+
+}
+
+.modal-textarea-control{
+
+  display: block;
+  width: 100%;
+  padding: 0.5rem 0.75rem;
+  //font-size: 1rem;
+  color: #464a4c;
+  background-color: #fff;
+  background-image: none;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 0.25rem;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  box-shadow: none;
+  font-size: 14px;
+
+}
+
+// textarea {
+
+// 	border-radius: 5px;
+// 	border: 1px solid rgba(0, 0, 0, 0.15);
+// 	margin-right: 50px;
+// 	margin-top:10px;
+// }
+
+// ................ persongroup .................
+
+.persongroupmodal-content{
+  //color: $dropdown-text;
+  width: 500px;
+  height: 400px;
+}
+
+// ................... persongroup End ............
+
+
+
+// ................ personinfo start .................
+
+.newperson-content{
+  //color: $dropdown-text;
+  width: 800px;
+  height: 500px;
+
+}
+
+
+/* Style the tab */
+div.tab {
+  overflow: hidden;
+  border: 1px solid #ccc;
+  background-color: #f1f1f1;
+
+}
+
+/* Style the buttons inside the tab */
+div.tab button {
+  background-color: inherit;
+  float: right;
+  border-top: none;
+  border-bottom: none;
+  border-right: none;
+  outline: none;
+  cursor: pointer;
+  transition: 0.3s;
+  width: 50%;
+}
+
+/* Change background color of buttons on hover */
+div.tab button:hover {
+  background-color: #ddd;
+}
+
+/* Create an active/current tablink class */
+div.tab button.active {
+  background-color: #ccc;
+}
+
+/* Style the tab content */
+.tabcontent {
+  //display: none;
+  padding: 6px 12px;
+  border: 1px solid #ccc;
+  border-top: none;
+}
+
+/* Style the close button */
+.topright {
+  float: right;
+  cursor: pointer;
+}
+
+.topright:hover {color: red;}
+
+.tablinkborder{
+  border-left: 1px solid #ccc;
+}
+.code
+{
+  //color: $dropdown-text;
+  width: 90px;
+  height: 20px;
+}
+.modal-public
+{
+  //color: $dropdown-text;
+  width: 90px;
+  height: 20px;
+}
+
+.box {
+  border: 1px solid #ccc;
+  width: 165px;
+  margin-top:5px;
+  margin-right:5px;
+}
+.fasele {
+  width:100px;
+  margin-right: 40px;
+}
+.box1{
+  border: 1px solid #ccc;
+  width: 100px;
+  margin-top:5px;
+  margin-right:79px;
+}
+.box2{
+  border: 1px solid #ccc;
+  width: 200;
+  margin-top:5px;
+  margin-right:2px;
+}
+
+.special{width:224px;
+  margin-right: 5px;}
+
+.specialaz{width:56px;
+  margin-right: 5px;}
+.trees{
+  float:right;
+  margin-left:165px;
+  margin-right: 5px;
+}
+.f1{margin-left:69.89px;
+}
+.f2{margin-left:68px;
+}
+
+
+.ff{margin-left:80px;
+}
+
+.box3{
+  border: 1px solid #ccc;
+  width: 166px;
+  margin-top:5px;
+  margin-right:-4.5px;
+
+}
+.newperson-content1 {
+
+  margin-left:50px;
+  margin-right: -205px;
+
+}
+
+.alert{
+  margin: 200px auto;
+}
+.modal-content1 {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  background-color: #fff;
+  background-clip: padding-box;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 0.3rem;
+  outline: 0;
+  width: 519px;
+  height: 300px;
+  margin-right:-58px;
+  overflow-x: scroll;
+
+}
+.scroll {
+  overflow-y: auto;
+}
+th.menu {
+
+  border-top: none;
+}
+
+.form-group lable{
+
+}
+//.card{
+//  margin:-43px;
+//}
+.personInfoCard {
+  float: Right;
+  width: 50%;
+  top:27px;
+}
+
+//.ui-state-default {
+//  width:  49%!important;
+//  height: 40px!important;
+//}
+.menu {
+  vertical-align: top !important;
+  margin-top: -20px;
+}
+
+.tree {
+  width: 30%;
+  float: right;
+}
+.tree1
+{
+  width: 70%;
+  float: right;
+}
+.ui-tabview-nav{
+  border :none !important;
+}
+
+
+/* The necessities */
+.onclick-menu {
+  position: relative;
+  display: inline-block;
+
+}
+.onclick-menu:before {
+  content: "ابزارها";
+}
+.onclick-menu:focus {
+  pointer-events: none;
+}
+
+.onclick-menu:focus .onclick-menu-content {
+  opacity: 1;
+  visibility: visible;
+  border-radius: 10px;
+}
+
+.onclick-menu-content {
+  pointer-events: auto;
+  position: absolute;
+  z-index: 3;
+  opacity: 0;
+  visibility: hidden;
+  transition: visibility 0.5s;
+}
+
+.onclick-menu.no-pointer-events {
+  pointer-events: auto !important;
+}
+
+.onclick-menu.no-visibility .onclick-menu-content {
+  visibility: visible !important;
+  display: none;
+}
+
+.onclick-menu.no-visibility:focus .onclick-menu-content {
+  display: block;
+}
+
+.onclick-menu.no-opacity .onclick-menu-content {
+  opacity: 1 !important;
+}
+
+/*
+Eye candy
+( colors courtesy of https://kuler.adobe.com/try-color-theme-3350110 )
+*/
+.onclick-menu {
+  padding: 0;
+  margin: 0 0 1em 0;
+  outline: 0;
+}
+.onclick-menu:before {
+  padding: 5px 10px;
+}
+.onclick-menu-content {
+  background-color: #FFFFFF;
+  width: 450px;
+  height: 100px;
+  margin-top: 6px;
+  padding-top: 20px;
+  margin-left: 0;
+  box-shadow: 1px 1px 6px 1px #888888;
+}
+
+/* arrow for the expanding part */
+.onclick-menu-content:before {
+  content: "";
+  width: 0;
+  height: 0;
+
+
+  position: absolute;
+  top: -10px;
+
+}
+
+.onclick-menu-content li {
+  color: #f2f5e9;
+  list-style-type: none;
+  float: right;
+  white-space: nowrap;
+  margin-bottom: 5px;
+}
+
+/* style the buttons */
+.onclick-menu-content button {
+  background: transparent;
+  border: none;
+  color: inherit;
+  cursor: inherit;
+  outline: 0;
+  cursor: pointer;
+}
+.onclick-menu-content button:hover {
+  color: #ff8c31;
+}
+
+
+.onclick-menu {
+
+  text-align: left;
+}
+
+.fa {
+
+  vertical-align: bottom !important;
+  margin-top: 2px !important;
+}
+.menuText {
+  vertical-align: top;
+  margin-top: -20px;
+}
+
+hr {
+  border-top: 1px dotted #D5D5D5;
+  width: 80px;
+}
+.separateSetting {
+  float: right;
+  text-align: right;
+  margin-right: 8px;
+  border-radius: 25px;
+  width: 100px;
+}
+.btn-group, .btn-group-vertical {
+  width:100%;
+  align-items: flex-start;
+
+}
+
+.btnTopPannel-title {
+  margin: 0 auto;
+}
+
+.fa-close {
+  color: black;
+  font-size:1em;
+}
+.btn-group button {
+  background-color: white;
+  font-size: 0.75em;
+}
+.card > .card-body {
+
+}
+
+.ui-tabview .ui-tabview-nav > li.ui-state-default {
+  width: 49% !important;
+  height: 40px !important;
+}
+
+.ui-tabview.ui-tabview-top>.ui-tabview-nav {
+
+
+}
+
+.card-block {
+  padding: 40px !important;
+}
+
+
+.newpage {
+  margin: 0 auto !important;
+  width: 40% !important;
+  padding: 2%;
+}
+
+.form-group {
+  clear: both !important;
+  border:none !important;
+  text-align: center;
+}
+
+.form-group label {
+//color:black !important;
+  float: right ;
+  align-items: flex-start !important;
+}
+
+.form-group span {
+  text-align: right;
+  align-items: flex-start;
+}
+
+.form-group input[type="text"], .text-danger  {
+  width: 100% !important;
+  padding: 5px;
+  height: 30px;
+}
+
+.form-group input[type="checkbox"] {
+  margin-left: 5px;
+}
+
+.form-group select {
+  padding: 5px;
+  height: 30px;
+}
+
+button.btn.btn-info {
+  background-color: #39d907 !important;
+  border-color: #39d907 !important;
+}
+
+.form-group btn-info {
+  background-color: #39d907 !important;
+  border-color: #39d907 !important;
+  width: 15% !important;
+}
+
+.form-inline {
+  align-items: flex-start !important;
+}
+
+.btn-success {
+  background-color: #2dacd1 !important;
+  border-color: #2dacd1 !important;
+}
+
+.form-lable {
+  width: 100px !important;
+}
+
+.breadcrumb-item {
+  float: right !important;
+}
+
+select {
+  width: 30%;
+  padding: 2px !important;
+}
+.coupleform {
+  width: 50% !important;
+  float: right !important;
+}
+
+.personinfoform {
+  padding: 4% 15% 10% 10% !important;
+  width:80% !important;
+}
+
+.personinfo-separate {
+  width: 50% !important;
+  height: 200px !important;
+  float: right !important;
+}
+
+.ui-tabview .ui-tabview-nav li {
+  float: right !important;
+}
+.ui-tabview-title {
+  align-items: right !important;
+}
+
+
+.form-group {
+  text-align: right !important;
+}
+
+.fa-plus, .fa-minus {
+  cursor: pointer;
+}
+
+.btnTopPannel {
+  border-bottom: 1px solid #bebebe;
+  padding-bottom: 5px;
+}
+/////////////////////////////////////personinfo//////////////////
+.btn-group button .btn .btn-success{
+  background-color: #ffffff !important;
+  border-color: #ffffff !important;
+}
+
+.collapse.show {
+  height: 400px;
+  overflow: scroll;
+}
+
+.entry:not(:first-of-type){
+  margin-top: 10px;
+}
+
+.ui-dialog-footer {
+  text-align: center;
+}
+.scroll-y {
+  height: 500px;
+  overflow: scroll;
+}
+///////////////////////////////// بودجه///////////////////////
+.karbarg {
+  background-color: rgb(0, 122, 255) !important;
+  border-color:rgb(0, 122, 255) !important;
+   cursor: pointer;
+   border-radius: 5px;
+   transition: all 0.1s ease;
+   padding: 0.344rem 1rem;
+  font-size: 1rem;
+  display: inline-block;
+  font-weight: normal;
+  line-height: 1.25;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  user-select: none;
+  border: 1px solid transparent;
+}
+ .karbarg:hover {
+   transform: scale(1.3);
+ }
+ .karbarg-info {
+   color: #fff;
+ }
+hr {
+  display: block;
+  margin-top: 70px;
+  margin-bottom: 0.5em;
+  margin-left: auto;
+  margin-right: auto;
+  border-style: inset;
+  border-width: 1.5px;
+  width: 100%;
+}
+.btn:hover {
+  transform :scale(1.1);
+}
+////////////////////////////////////////////////////////
+
+.topmenuul {
+  margin-right: -60%;
+  margin-top: 10%;
+  color: white;
+}
+
+.topmenuul li {
+
+  padding-left: 4px;
+  padding-left: 4px;
+  font-size: 12px;
+}
+
+.topmenuul li i {
+  margin-bottom: 2px;
+}
+
+.topsearch {
+  border-radius: 5px;
+  border: 1px solid;
+  margin: 22px -40px 0 0 !important;
+}
+.top {
+  border-bottom: 1px solid #bebebe;
+  padding-bottom: 5px;
+  text-align: center;
+}
+
+/////////////////////////////////
+.icon:hover {
+  transform :scale(1.2);
+}
+.icon {
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.ok {
+  background-color: #e85656 !important;
+  border: 1px solid #e85656 !important;
+}
+///////////////////
+.min {
+  margin-top:0px !important;
+  height:16px !important;
+  color: #989090;
+}
+//////////////////menubar//////////////////
+.ui-widget-content {
+  border:none;
+}
+.ui-menubar .ui-menubar-custom {
+  float: left;
+  //padding-right: ;
+}
+
+
+////////////////////////////صورت مالی
+ .mali table {
+  font-family: arial, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+ .mali  th {
+  border: 1px solid #dddddd;
+  text-align: center;
+  padding: 8px;
+}
+.mali td {
+  border: 1px solid #dddddd;
+  padding: 8px;
+}
+
+
+

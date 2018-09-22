@@ -1,0 +1,76 @@
+<p-growl   [style.zIndex]="99999999" [(value)]="msgs"></p-growl>﻿
+
+<ba-card class="col-xlg-2 col-xl-2 col-lg-12 col-sm-12 col-12" >
+
+  <p-button label=""
+            (onClick)="Back($event)"
+            icon="fa fa-arrow-left" iconPos="left">
+  </p-button>
+  <div class="container">
+    <form #createTeam="ngForm" class="mt-5" (onsubmit)="savedTeamp($event)">
+      <div class="form-group row">
+        <label for="teamName" class="col-sm-2 col-form-label">عنوان تیم</label>
+        <div class="col-sm-10">
+          <input type="text" name="teamName" class="col-6 form-control"
+                 [(ngModel)]="currentEntryTeam.Name"/>
+        </div>
+      </div>
+
+      <!--<div class="form-group row">-->
+        <!--<label for="teamPlayNo" class="col-sm-2 col-form-label"> تعداد بازی </label>-->
+        <!--<div class="col-sm-10">-->
+          <!--<input type="text" name="teamPlayNo" class="col-6 form-control"-->
+                 <!--[(ngModel)]="currentEntryTeam.PlayNo"/>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="form-group row">-->
+        <!--<label for="teamWin" class="col-sm-2 col-form-label"> تعداد برد </label>-->
+        <!--<div class="col-sm-10">-->
+          <!--<input type="text" name="teamWin" class="col-6 form-control"-->
+                 <!--[(ngModel)]="currentEntryTeam.Win"/>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="form-group row">-->
+      <!--<label for="equal" class="col-sm-2 col-form-label"> مساوی </label>-->
+      <!--<div class="col-sm-10">-->
+        <!--<input type="text" name="equal" class="col-6 form-control"-->
+               <!--[(ngModel)]="currentEntryTeam.Equal"/>-->
+      <!--</div>-->
+    <!--</div>-->
+      <!--<div class="form-group row">-->
+        <!--<label for="Lost" class="col-sm-2 col-form-label"> باخت </label>-->
+        <!--<div class="col-sm-10">-->
+          <!--<input type="text" name="Lost" class="col-6 form-control"-->
+                 <!--[(ngModel)]="currentEntryTeam.Lost"/>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="form-group row">-->
+        <!--<label for="Zade" class="col-sm-2 col-form-label"> تعداد گل زده </label>-->
+        <!--<div class="col-sm-10">-->
+          <!--<input type="text" name="Zade" class="col-6 form-control"-->
+                 <!--[(ngModel)]="currentEntryTeam.Zade"/>-->
+        <!--</div>-->
+      <!--</div>-->
+      <!--<div class="form-group row">-->
+        <!--<label for="Zade" class="col-sm-2 col-form-label"> تعداد گل خورده </label>-->
+        <!--<div class="col-sm-10">-->
+          <!--<input type="text" name="Zade" class="col-6 form-control"-->
+                 <!--[(ngModel)]="currentEntryTeam.Khorde"/>-->
+        <!--</div>-->
+      <!--</div>-->
+
+      <div class="form-group row">
+        <label for="teamDesc" class="col-sm-2 col-form-label">توضیحات</label>
+        <div class="col-sm-10">
+          <textarea name="Description"
+                 [(ngModel)]="currentEntryTeam.Description"
+                 class="col-6 form-control"></textarea>
+        </div>
+      </div>
+      <button type="button" class="btn btn-default" (click)="savedTeamp($event)">ثبـــت </button>
+    </form>
+
+  </div>
+
+
+</ba-card>
